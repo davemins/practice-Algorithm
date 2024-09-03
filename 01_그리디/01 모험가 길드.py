@@ -1,15 +1,64 @@
+'''
+# 문제 이해
+모험가의 수 n을 입력받는다.
+모험가의 공포도에 대한 정보를 입력받는다.
+여행을 떠날 수 있는 그룹 수의 최댓값을 구한다.
+
+# 발상
+생각보다 그리디에 대한 타당성을 확인하기 쉽지는 않은 것 같다.
+직관적이지 않다. 따라서 차근차근 논리를 확인해보자.
+
+모든 모험가를 특정한 그룹에 넣을 필요는 없기에 역정렬한 후에 숫자만큼 묶어주며 갯수를 카운트하면 될 것 같다.
+하지만 이것의 타당성을 조사할 필요가 있다.
+구현도 생각보다 쉽지는 않아보인다.
+
+# 복잡도
+모험가의 수를 n이라고 했을 떄, n은 100,000 이하이므로
+O(n^2)이면 10억을 넘는 100억이 되어 1초를 넘긴다.
+O(n)으로 가자
+'''
 n = int(input())
 
-data = list(map(int, input().split()))
-data.sort()
+rate_list = list(map(int, input().split()))
 
-result = 0
-count = 1
+rate_list.sort()
 
-for i in data:
-    count += 1
-    if count > i:
-        result += 1
-        count = 0
+count = 0
 
-print(result)
+index = 0
+
+'''for i in range(n):
+    index = index + rate_list[index]
+    if index < len(rate_list):
+        count += 1
+    else:
+        break'''
+
+for i in rate_list:
+    index += 1
+    if index >= i:
+        count += 1
+        index = 0
+
+print(count)
+'''
+# 푼 시간
+30분
+5
+2 3 1 2 2
+# 채점
+오답
+
+# 느낀 점
+구현이 어려웠다.
+그리고 그리디 알고리즘의 타당성을 확신하지 못했다.
+그리고 왜 내림차순 정렬로 생각을 했는지 모르겠다..
+아직 실제 시험과 같은 긴장감이 없는 것 같다.
+근데 이렇게 하면 의미가 없다.
+
+구하고자 하는 것의 이름을 result로 하자.
+그리고 주어진 리스트의 이름을 data로 하자.
+
+너무 아이디어 정리 없이 풀이를 시작한다.
+발상 적는 것도 좋지만 손으로 많이 써보는 것을 우선으로 하자.
+'''
