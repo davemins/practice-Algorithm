@@ -1,25 +1,27 @@
-import heapq
-
-def solution(food_times, k):
-    if sum(food_times) <= k:
-        return -1
-
-    q = []
-    for i in range(len(food_times)):
-        heapq.heappush(q, (food_times[i], i+1))
-
-    sum_value = 0
-    previous = 0
-    length = len(food_times)
-
-    while sum_value + ((q[0][0] - previous) * length) <= k:
-        now = heapq.heappop(q)[0]
-        sum_value += (now - previous) * length
-        length -= 1
-        previous = now
+'''
+# 문제 이해
 
 
-    result = sorted(q, key = lambda x: x[1])
-    return result[(k - sum_value) % length][1]
+# 발상
 
-print(solution([8, 6, 4], 15))
+
+# 복잡도
+
+
+'''
+
+
+
+'''
+# 푼 시간
+30분
+
+# 채점
+오답
+
+# 느낀 점
+빼면서 구하는 방법으로 하다가 더하면서 구하는 방법으로 하려고 하다 시간이 끝났다.
+
+너무 어려워서 아껴두려고 한다.
+나중에 성장해서 다시 만나자.
+'''
