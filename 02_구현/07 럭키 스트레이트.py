@@ -1,19 +1,36 @@
-number = input()
-number_list = []
+'''
+# 문제 이해
+좌우의 자릿수가 같으면 LUCKY, 다르면 READY를 출력한다.
 
-sum1 = 0
-sum2 = 0
+# 발상
+완전 탐색 : 모든 경우의 수를 빠짐없이 계산하면 될 것 같다.
 
-for i in number:
-    number_list.append(int(i))
+# 복잡도
+정수의 길이가 n일 떄 O(n)의 시간복잡도를 가진다.
 
-for j in range(len(number_list) // 2):
-    sum1 += number_list[j]
+'''
+data = input()
+n = len(data)
 
-for k in range(len(number_list) // 2, len(number_list)):
-    sum2 += number_list[k]
+left, right = 0, 0
 
-if sum1 == sum2:
-    print('LUCKY')
+for i in range(n // 2):
+    left += int(data[i])
+
+for j in range(n // 2, n):
+    right += int(data[j])
+
+if left == right:
+    print("LUCKY")
 else:
-    print('READY')
+    print("READY")
+'''
+# 푼 시간
+7분
+
+# 채점
+정답
+
+# 느낀 점
+이정도는 풀 수 있다는 생각이 든다.
+'''
