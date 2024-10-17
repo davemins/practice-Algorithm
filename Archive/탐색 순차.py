@@ -6,7 +6,6 @@
 
 # 출력
 
-
 '''
 # 순차 탐색 소스코드 구현
 def sequential_search(n, target, array):
