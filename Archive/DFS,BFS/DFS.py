@@ -45,7 +45,7 @@ def dfs(x, y):
 result = 0
 for i in range(n):
     for j in range(m):
-        # 현재 위치에서 DFS 수행
+        # 현재 위치에서 DFS,BFS 수행
         if dfs(i, j):
             result += 1
 
