@@ -2,10 +2,27 @@
 <다익스트라 알고리즘 (간단)>
 
 # 입력
-
+6 11
+1
+1 2 2
+1 3 5
+1 4 1
+2 3 3
+2 4 2
+3 2 3
+3 6 5
+4 3 3
+4 5 1
+5 3 1
+5 6 2
 
 # 출력
-
+0
+2
+3
+1
+2
+4
 
 '''
 import sys
@@ -30,7 +47,6 @@ distance = [INF] * (n + 1)
 # 모든 간선 정보를 입력받기 ex) 1 2 2\n1 3 5\n1 4 1\n..
 for _ in range(m):
     a, b, c = map(int, input().split())
-
     # a번 노드에서 b번 노드로 가는 비용이 c라는 의미
     graph[a].append((b, c))
 
@@ -50,17 +66,14 @@ def dijkstra(start):
     visited[start] = True
     for j in graph[start]:
         distance[j[0]] = j[1]
-
     # 시작 노드를 제외한 전체 n - 1개의 노드에 대해 반복
     for i in range(n - 1):
         # 현재 최단 거리가 가장 짧은 노드를 꺼내서, 방문 처리
         now = get_smallest_node()
         visited[now] = True
-
         # 현재 노드와 연결된 다른 노드를 확인
         for j in graph[now]:
             cost = distance[now] + j[1]
-
             # 현재 노드를 거쳐서 다른 노드로 이동하는 거리가 더 짧은 경우
             if cost < distance[j[0]]:
                 distance[j[0]] = cost
